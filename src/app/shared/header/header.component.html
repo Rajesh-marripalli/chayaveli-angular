@@ -1,0 +1,24 @@
+<header>
+  <a class="brand" href="#home" (click)="closeMenu()" aria-label="Chayaveli Photography home">
+    CHAYAVELI<span>PHOTOGRAPHY</span>
+  </a>
+  <div class="header-right">
+    <nav class="nav" [class.open]="menuOpen()" aria-label="Main navigation">
+      <a href="#home" (click)="closeMenu()">Home</a>
+      <a href="#services" (click)="closeMenu()">Our Stories</a>
+      <a href="#portfolio" (click)="closeMenu()">Portfolio</a>
+      <a href="#wall-art" (click)="closeMenu()">Wall Art</a>
+      <a href="#about" (click)="closeMenu()">About</a>
+      <a class="book" href="#contact" (click)="closeMenu()">Book a Session</a>
+    </nav>
+    <div class="social-icons" aria-label="Social media">
+      <a [href]="studio.instagramUrl" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.6 6.4h.01"/></svg>
+      </a>
+      <a [href]="studio.youtubeUrl" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></svg>
+      </a>
+    </div>
+    <button class="menu" type="button" aria-label="Toggle navigation" [attr.aria-expanded]="menuOpen()" (click)="menuOpen.set(!menuOpen())">☰</button>
+  </div>
+</header>
