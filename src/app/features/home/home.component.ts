@@ -21,22 +21,42 @@ export class HomeComponent {
   readonly filters = ['All', 'Wedding', 'Pre-Wedding', 'Fashion & Portraits', 'Baby'];
   readonly selectedFilter = signal('All');
   readonly selectedPhoto = signal<Photo | null>(null);
-  readonly message = signal('This opens an email draft in your email application. No message is saved on the website yet.');
+  // Studio's official profiles. Keep these here so replacing these two files is enough.
+  readonly instagramUrl = 'https://www.instagram.com/chayaveli_photography/';
+  readonly youtubeUrl = 'https://www.youtube.com/@chayaveliphotography';
+  readonly whatsappNumber = '918333030838';
+  readonly whatsappUrl = `https://wa.me/${this.whatsappNumber}?text=${encodeURIComponent('Hello Chayaveli Photography! Please share your photography packages and availability.')}`;
+  readonly message = signal('Complete the form and choose WhatsApp. You can review the message before sending it.');
   readonly services = [
-    {category:'Wedding',subtitle:'01 / The promise',title:'Weddings',src:'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=850&q=85',alt:'Wedding photography'},
-    {category:'Pre-Wedding',subtitle:'02 / Before forever',title:'Pre-Wedding',src:'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=850&q=85',alt:'Pre-wedding couple'},
-    {category:'Fashion & Portraits',subtitle:'03 / Your expression',title:'Fashion & Portraits',src:'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=850&q=85',alt:'Fashion portrait'},
+    {category:'Wedding',subtitle:'01 / The promise',title:'Weddings',src:'images/taj-17.jpg',alt:'Wedding photography'},
+    {category:'Pre-Wedding',subtitle:'02 / Before forever',title:'Pre-Wedding',src:'images/taj-01.jpg',alt:'Pre-wedding couple'},
+    {category:'Fashion & Portraits',subtitle:'03 / Your expression',title:'Fashion & Portraits',src:'images/taj-10.jpg',alt:'Fashion portrait'},
     {category:'Baby',subtitle:'04 / Little beginnings',title:'Baby Shoots',src:'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=850&q=85',alt:'Baby photography'}
   ];
   readonly photos: Photo[] = [
-    {category:'Wedding',src:'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=85',alt:'Wedding celebration',caption:'Wedding / Forever begins',tall:true},
-    {category:'Pre-Wedding',src:'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1000&q=85',alt:'Romantic pre-wedding session',caption:'Pre-Wedding / Two hearts'},
-    {category:'Fashion & Portraits',src:'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=85',alt:'Editorial portrait',caption:'Portraits / The muse',tall:true},
-    {category:'Baby',src:'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=1000&q=85',alt:'Baby portrait',caption:'Baby / Little wonders'},
-    {category:'Wedding',src:'https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1000&q=85',alt:'Romantic bride and groom',caption:'Wedding / The vows',tall:true},
-    {category:'Fashion & Portraits',src:'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=85',alt:'Fashion portrait',caption:'Fashion / In focus'},
-    {category:'Pre-Wedding',src:'https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1000&q=85',alt:'Couple portrait',caption:'Pre-Wedding / In love'},
-    {category:'Baby',src:'https://images.unsplash.com/photo-1491013516836-7db643ee125a?auto=format&fit=crop&w=1000&q=85',alt:'Baby moment',caption:'Baby / First memories'}
+    {category:'Pre-Wedding',src:'images/taj-01.jpg',alt:'Sunlit silhouette',caption:'Pre-Wedding / Love in the light',tall:true},
+    {category:'Wedding',src:'images/taj-02.jpg',alt:'Wedding album cover',caption:'Wedding / Together forever',tall:false},
+    {category:'Pre-Wedding',src:'images/taj-03.jpg',alt:'Couple at the celebration',caption:'Pre-Wedding / A shared beginning',tall:false},
+    {category:'Wedding',src:'images/taj-04.jpg',alt:'Bridal preparation portraits',caption:'Wedding / The bride',tall:true},
+    {category:'Pre-Wedding',src:'images/taj-05.jpg',alt:'Couple portraits',caption:'Pre-Wedding / Side by side',tall:false},
+    {category:'Fashion & Portraits',src:'images/taj-06.jpg',alt:'Groom editorial portraits',caption:'Fashion & Portraits / The groom',tall:false},
+    {category:'Fashion & Portraits',src:'images/taj-07.jpg',alt:'Bridal portrait grid',caption:'Fashion & Portraits / Bridal beauty',tall:true},
+    {category:'Fashion & Portraits',src:'images/taj-08.jpg',alt:'Bridal portrait composition',caption:'Fashion & Portraits / Golden elegance',tall:false},
+    {category:'Fashion & Portraits',src:'images/taj-09.jpg',alt:'Groom portrait',caption:'Fashion & Portraits / Classic portrait',tall:false},
+    {category:'Fashion & Portraits',src:'images/taj-10.jpg',alt:'Bridal fashion portrait',caption:'Fashion & Portraits / Radiant bride',tall:true},
+    {category:'Pre-Wedding',src:'images/taj-11.jpg',alt:'Couple close-up',caption:'Pre-Wedding / A stolen glance',tall:false},
+    {category:'Fashion & Portraits',src:'images/taj-12.jpg',alt:'Bridal portrait gallery',caption:'Fashion & Portraits / Golden moments',tall:false},
+    {category:'Wedding',src:'images/taj-13.jpg',alt:'Wedding couple holding hands',caption:'Wedding / Together',tall:true},
+    {category:'Wedding',src:'images/taj-14.jpg',alt:'Traditional wedding ceremony',caption:'Wedding / Wedding rituals',tall:false},
+    {category:'Wedding',src:'images/taj-15.jpg',alt:'Wedding couple in garden',caption:'Wedding / The journey',tall:false},
+    {category:'Wedding',src:'images/taj-16.jpg',alt:'Bridal henna close-up',caption:'Wedding / Beautiful details',tall:true},
+    {category:'Wedding',src:'images/taj-17.jpg',alt:'Family at wedding ceremony',caption:'Wedding / Joyful blessings',tall:false},
+    {category:'Wedding',src:'images/taj-18.jpg',alt:'Wedding couple walking away',caption:'Wedding / Hand in hand',tall:false},
+    {category:'Wedding',src:'images/taj-19.jpg',alt:'Wedding ritual celebration',caption:'Wedding / Sacred moments',tall:true},
+    {category:'Wedding',src:'images/taj-20.jpg',alt:'Wedding couple candid',caption:'Wedding / Happy tears',tall:false},
+    {category:'Wedding',src:'images/taj-21.jpg',alt:'Family wedding celebration',caption:'Wedding / Shared joy',tall:false},
+    {category:'Wedding',src:'images/taj-22.jpg',alt:'Hands held together',caption:'Wedding / Forever',tall:true},
+    {category:'Baby',src:'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=1000&q=85',alt:'Sample baby photography (replace with studio photo)',caption:'Baby / Sample photo'}
   ];
   readonly filteredPhotos = computed(() => {
     const filter = this.selectedFilter();
@@ -51,13 +71,19 @@ export class HomeComponent {
   @HostListener('document:keydown.escape')
   onEscape(): void { this.closePhoto(); }
 
+  // Opens WhatsApp with a prepared inquiry. The visitor must still press Send.
   submitInquiry(): void {
-    const subject = encodeURIComponent(`Photography inquiry: ${this.inquiry.session}`);
-    const body = encodeURIComponent(`Name: ${this.inquiry.name}\nEmail: ${this.inquiry.email}\nPhone: ${this.inquiry.phone}\nSession: ${this.inquiry.session}\n\nMessage:\n${this.inquiry.message}`);
-    const to = this.studio.bookingEmail;
-    this.message.set(to
-      ? 'Your email application will open. Please send the draft to complete your inquiry.'
-      : 'Your email application will open. Please enter the studio email address and send the draft; no inquiry is saved automatically.');
-    window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+    const inquiryText = [
+      'Hello Chayaveli Photography! I would like to enquire about a photography session.',
+      `Name: ${this.inquiry.name.trim()}`,
+      `Email: ${this.inquiry.email.trim()}`,
+      `Phone: ${this.inquiry.phone.trim() || 'Not provided'}`,
+      `Session: ${this.inquiry.session}`,
+      `Message: ${this.inquiry.message.trim() || 'Please share package details and availability.'}`
+    ].join('\n');
+
+    const url = `https://wa.me/${this.whatsappNumber}?text=${encodeURIComponent(inquiryText)}`;
+    this.message.set('A WhatsApp message draft is opening. Please press Send in WhatsApp to complete your inquiry.');
+    window.open(url, '_blank', 'noopener,noreferrer');
   }
 }

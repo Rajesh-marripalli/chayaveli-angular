@@ -1,7 +1,7 @@
 <main>
   <!-- Source design preserved: cinematic photo hero -->
   <div class="hero" id="home">
-    <img class="hero-image" src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=2200&q=85" alt="Romantic wedding couple">
+    <img class="hero-image" src="images/taj-01.jpg" alt="Wedding couple in a romantic silhouette" fetchpriority="high">
     <div class="hero-content">
       <div class="eyebrow">For the moments that become forever</div>
       <h1>Love, light<br>&amp; <em>everything</em><br>in between.</h1>
@@ -9,13 +9,14 @@
       <div class="actions">
         <a class="btn" href="#portfolio">Explore Our Work ↗</a>
         <a class="btn btn-outline" href="#contact">Let's Create Together</a>
+        <a class="btn btn-outline" [href]="whatsappUrl" target="_blank" rel="noopener noreferrer">Chat on WhatsApp ↗</a>
       </div>
       <div class="hero-social">
         <span class="hero-social-label">Follow our stories</span>
-        <a [href]="studio.instagramUrl" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <a [href]="instagramUrl" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.6 6.4h.01"/></svg> Instagram ↗
         </a>
-        <a [href]="studio.youtubeUrl" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <a [href]="youtubeUrl" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
           <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></svg> YouTube ↗
         </a>
       </div>
@@ -69,7 +70,7 @@
     <div class="gallery">
       @for (photo of filteredPhotos(); track photo.src) {
         <button type="button" class="gallery-item" [class.tall]="photo.tall" (click)="openPhoto(photo)" [attr.aria-label]="'Expand ' + photo.alt">
-          <img loading="lazy" [src]="photo.src" [alt]="photo.alt">
+          <img loading="lazy" decoding="async" [src]="photo.src" [alt]="photo.alt">
           <div class="caption">{{ photo.caption }}</div>
         </button>
       }
@@ -139,6 +140,8 @@
           <strong>Chayaveli Photography, Tirupati</strong>
           <address>{{ studio.address }}</address>
           <a [href]="studio.mapsUrl" target="_blank" rel="noopener noreferrer">View Studio Location on Google Maps ↗</a>
+          <p><a [href]="whatsappUrl" target="_blank" rel="noopener noreferrer">WhatsApp: +91 83330 30838 ↗</a></p>
+          <p><a [href]="instagramUrl" target="_blank" rel="noopener noreferrer">Instagram ↗</a> · <a [href]="youtubeUrl" target="_blank" rel="noopener noreferrer">YouTube ↗</a></p>
         </div>
       </div>
       <form #inquiryForm="ngForm" (ngSubmit)="submitInquiry()">
@@ -164,7 +167,7 @@
         <label>Your story
           <textarea name="message" [(ngModel)]="inquiry.message" placeholder="Date, location, ideas, and anything you'd like us to know..."></textarea>
         </label>
-        <button type="submit" class="btn" [disabled]="inquiryForm.invalid">Prepare Inquiry Email ↗</button>
+        <button type="submit" class="btn" [disabled]="inquiryForm.invalid">Send Inquiry on WhatsApp ↗</button>
         <p class="form-feedback" aria-live="polite">{{ message() }}</p>
       </form>
     </div>
